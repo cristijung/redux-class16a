@@ -1,4 +1,4 @@
-# Redux Class 15
+# Redux Class 16A
 ## Tópicos de Aula
 
 - O que é Redux?
