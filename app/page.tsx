@@ -1,5 +1,6 @@
 import Counter from "./components/counter/Counter";
-import TodoItem from "./components/todos/TodoItem";
+import TodoList from "./components/todo/TodoList";
+
 
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
        <hr/>
        <Counter />
        <hr/>
-      
+      <TodoList />      
       </section>
    </>
   );
