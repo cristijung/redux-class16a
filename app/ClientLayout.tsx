@@ -1,21 +1,30 @@
 "use client";
 
 import { Provider } from "react-redux";
-import { store } from "./store/store"; //importação do store criado para a aplicação
+import { useRef } from "react";
+import { store as createStoreFunction, AppStore } from "./store/store";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import { setupListeners } from "@reduxjs/toolkit/query/react";
 
 export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const storeRef = useRef<AppStore | null>(null);
+  if (!storeRef.current) {
+    storeRef.current = createStoreFunction();
+    // se precisar configure listeners para RTK Query
+    setupListeners(storeRef.current.dispatch);
+  }
+
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <Provider store={store}>
+        <Provider store={storeRef.current}>
           <Header />
-          <main>{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </Provider>
       </div>

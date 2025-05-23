@@ -1,4 +1,5 @@
 import Counter from "./components/counter/Counter";
+import PostList from "./components/posts/PostList";
 import TodoList from "./components/todo/TodoList";
 
 
@@ -11,7 +12,9 @@ export default function Home() {
        <hr/>
        <Counter />
        <hr/>
-      <TodoList />      
+      <TodoList />    
+      <hr/>  
+      <PostList />
       </section>
    </>
   );
